@@ -1,4 +1,3 @@
-// src/components/ResultsDisplay.styles.ts
 import { css } from "../../styled-system/css";
 
 export const resultsContainer = css({

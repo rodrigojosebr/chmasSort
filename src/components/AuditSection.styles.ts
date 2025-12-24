@@ -1,4 +1,3 @@
-// src/components/AuditSection.styles.ts
 import { css } from "../../styled-system/css";
 
 export const auditSectionContainer = css({

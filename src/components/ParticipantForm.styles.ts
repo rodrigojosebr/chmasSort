@@ -1,4 +1,3 @@
-// src/components/ParticipantForm.styles.ts
 import { css } from "../../styled-system/css";
 
 export const formContainer = css({

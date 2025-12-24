@@ -1,4 +1,3 @@
-// src/components/ParticipantForm.tsx
 "use client";
 
 import {
