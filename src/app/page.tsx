@@ -1,11 +1,18 @@
+// src/app/page.tsx
 "use client";
 
 import { useState } from "react";
-import { css } from "../../styled-system/css";
 import { FaGift } from "react-icons/fa";
 import { ParticipantForm } from "../components/ParticipantForm";
 import { ResultsDisplay } from "../components/ResultsDisplay";
 import { AuditSection } from "../components/AuditSection";
+import {
+  contentGrid,
+  giftIcon,
+  header,
+  mainContainer,
+  mainTitle,
+} from "./page.styles";
 
 export default function Home() {
   const [names, setNames] = useState("");
@@ -39,50 +46,16 @@ export default function Home() {
 
   // 3. Atualiza a lista na tela com a nova ordem.
   setShuffledNames(shuffled);
-};
-`;
+}`;
 
   return (
-    <main
-      className={css({
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        padding: { base: "2rem", md: "4rem" },
-        minHeight: "100vh",
-        backgroundColor: "red.50",
-      })}
-    >
-      <header
-        className={css({
-          display: "flex",
-          alignItems: "center",
-          gap: "1rem",
-          marginBottom: "3rem",
-        })}
-      >
-        <FaGift className={css({ fontSize: "40px", color: "red.600" })} />
-        <h1
-          className={css({
-            fontSize: { base: "2xl", md: "4xl" },
-            fontWeight: "bold",
-            color: "green.800",
-            textAlign: "center",
-          })}
-        >
-          Amigo Ladrão 2025 - Família José
-        </h1>
+    <main className={mainContainer}>
+      <header className={header}>
+        <FaGift className={giftIcon} />
+        <h1 className={mainTitle}>Amigo Ladrão 2025 - Família José</h1>
       </header>
 
-      <div
-        className={css({
-          display: "grid",
-          gridTemplateColumns: { base: "1fr", md: "1fr 1fr" },
-          gap: { base: "3rem", md: "4rem" },
-          width: "100%",
-          maxWidth: "1024px",
-        })}
-      >
+      <div className={contentGrid}>
         <ParticipantForm
           names={names}
           onNamesChange={setNames}

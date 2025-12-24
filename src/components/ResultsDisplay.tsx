@@ -1,7 +1,15 @@
 // src/components/ResultsDisplay.tsx
 "use client";
 
-import { css } from "../../styled-system/css";
+import {
+  resultsContainer,
+  resultsList,
+  resultsListItem,
+  resultsListItemName,
+  resultsListItemPosition,
+  resultsPlaceholder,
+  resultsTitle,
+} from "./ResultsDisplay.styles";
 
 interface ResultsDisplayProps {
   shuffledNames: string[];
@@ -18,25 +26,9 @@ const positionTitles = [
 export const ResultsDisplay = ({ shuffledNames }: ResultsDisplayProps) => {
   if (shuffledNames.length === 0) {
     return (
-      <div
-        className={css({
-          backgroundColor: "white",
-          padding: "2rem",
-          borderRadius: "lg",
-          boxShadow: "md",
-        })}
-      >
-        <h2
-          className={css({
-            fontSize: "2xl",
-            fontWeight: "semibold",
-            marginBottom: "1.5rem",
-            color: "green.700",
-          })}
-        >
-          Ordem da "roubalheira"
-        </h2>
-        <p className={css({ color: "gray.500", fontStyle: "italic" })}>
+      <div className={resultsContainer}>
+        <h2 className={resultsTitle}>Ordem da "roubalheira"</h2>
+        <p className={resultsPlaceholder}>
           A ordem do sorteio aparecerá aqui...
         </p>
       </div>
@@ -44,31 +36,9 @@ export const ResultsDisplay = ({ shuffledNames }: ResultsDisplayProps) => {
   }
 
   return (
-    <div
-      className={css({
-        backgroundColor: "white",
-        padding: "2rem",
-        borderRadius: "lg",
-        boxShadow: "md",
-      })}
-    >
-      <h2
-        className={css({
-          fontSize: "2xl",
-          fontWeight: "semibold",
-          marginBottom: "1.5rem",
-          color: "green.700",
-        })}
-      >
-        Ordem da "roubalheira"
-      </h2>
-      <ol
-        className={css({
-          listStyle: "none",
-          padding: "0",
-          color: "gray.800",
-        })}
-      >
+    <div className={resultsContainer}>
+      <h2 className={resultsTitle}>Ordem da "roubalheira"</h2>
+      <ol className={resultsList}>
         {shuffledNames.map((name, index) => {
           let title = "";
           if (
@@ -83,32 +53,11 @@ export const ResultsDisplay = ({ shuffledNames }: ResultsDisplayProps) => {
           }
 
           return (
-            <li
-              key={index}
-              className={css({
-                fontSize: "lg",
-                padding: "0.75rem 0",
-                borderBottom: "1px solid",
-                borderColor: "gray.200",
-                _last: {
-                  borderBottom: "none",
-                },
-                display: "flex",
-                flexDirection: "column",
-              })}
-            >
-              <span
-                className={css({
-                  fontWeight: "bold",
-                  color: "red.700",
-                  fontSize: "md",
-                })}
-              >
+            <li key={index} className={resultsListItem}>
+              <span className={resultsListItemPosition}>
                 {index + 1}º - {title}
               </span>
-              <span className={css({ paddingTop: "0.25rem" })}>
-                {name}
-              </span>
+              <span className={resultsListItemName}>{name}</span>
             </li>
           );
         })}
